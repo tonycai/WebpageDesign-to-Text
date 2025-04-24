@@ -142,18 +142,22 @@ class LayoutToTextConverter:
                                  rel_right: float, 
                                  rel_bottom: float) -> Dict[str, Any]:
         
+        # Calculate center point
+        center_x = (rel_left + rel_right) / 2
+        center_y = (rel_top + rel_bottom) / 2
+        
         # Horizontal position
-        if rel_left < 0.33:
+        if center_x < 0.33:
             h_pos = "left"
-        elif rel_left >= 0.33 and rel_right <= 0.66:
+        elif center_x >= 0.33 and center_x <= 0.66:
             h_pos = "center"
         else:
             h_pos = "right"
         
         # Vertical position
-        if rel_top < 0.33:
+        if center_y < 0.33:
             v_pos = "top"
-        elif rel_top >= 0.33 and rel_bottom <= 0.66:
+        elif center_y >= 0.33 and center_y <= 0.66:
             v_pos = "middle"
         else:
             v_pos = "bottom"
@@ -187,7 +191,7 @@ class LayoutToTextConverter:
         return {
             'tags': relevant_meta,
             'description': f"The page includes {len(relevant_meta)} metadata tags, including: " + 
-                          ", ".join(relevant_meta.keys()[:3])
+                          ", ".join(list(relevant_meta.keys())[:3] if relevant_meta else [])
         }
     
     def _generate_element_description(self, 

@@ -13,9 +13,13 @@ fi
 URL=$1
 shift  # Remove the URL from arguments
 
+# Create necessary directories if they don't exist
+mkdir -p output screenshot .keys
+
 # Run the container with the provided URL and any additional arguments
 docker run --rm -v "$(pwd)/output:/app/output" \
                 -v "$(pwd)/screenshot:/app/screenshot" \
+                -v "$(pwd)/.keys:/app/.keys" \
                 -v "$(pwd)/config.yaml:/app/config.yaml" \
                 webpage-design-to-text "$URL" "$@"
 
