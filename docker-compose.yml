@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  webpage-to-text:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./output:/app/output
+      - ./screenshot:/app/screenshot
+      - ./config.yaml:/app/config.yaml
+      # Mount your Google Cloud credentials file if needed
+      # - ./path/to/credentials.json:/app/credentials.json
+    environment:
+      # You can set environment variables here instead of using config.yaml
+      # ANTHROPIC_API_KEY: your_api_key_here
+      # GOOGLE_APPLICATION_CREDENTIALS: /app/credentials.json
+      PYTHONUNBUFFERED: 1
+    # Override the default command to analyze a specific URL
+    # command: ["https://example.com", "--llm", "--analysis", "ux"]
+
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    volumes:
+      - ./tests:/app/tests
+      - ./src:/app/src
+      - ./pytest.ini:/app/pytest.ini
+      - ./test_reports:/app/test_reports
+    environment:
+      PYTHONPATH: /app
+      PYTHONUNBUFFERED: 1
+    command: [
+      "pytest", "-v",
+      "--cov=src",
+      "--cov-report=html:/app/test_reports/coverage",
+      "--cov-report=xml:/app/test_reports/coverage.xml",
+      "--html=/app/test_reports/test_report.html",
+      "--junitxml=/app/test_reports/junit.xml"
+    ]

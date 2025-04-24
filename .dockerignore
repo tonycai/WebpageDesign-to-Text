@@ -1,0 +1,58 @@
+# Exclude version control
+.git
+.gitignore
+
+# Exclude Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Exclude Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Exclude test related
+tests/
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Exclude output and screenshot directories (will be mounted as volumes)
+output/
+screenshot/
+
+# Exclude editor configs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Exclude documentation
+README.md
+LICENSE
+*.md
+!requirements.txt
+
+# Exclude credentials (these should be mounted or provided via environment variables)
+*.json
+config.yaml
+config.yaml.template

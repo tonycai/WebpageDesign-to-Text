@@ -1,0 +1,39 @@
+# WebpageDesign-to-Text Configuration
+
+# Google Cloud Vision API credentials (required for OCR)
+# Path to your Google Cloud service account key file
+google_cloud_credentials: "path/to/your/google-cloud-key.json"
+
+# Anthropic API key (required for LLM analysis)
+anthropic_api_key: "your_anthropic_api_key_here"
+
+# Output directory for saved files (optional)
+# If not specified, files will be saved to ./output/
+output_dir: "output"
+
+# Screenshot settings
+screenshot:
+  # Wait time before capturing screenshot (in seconds)
+  wait_time: 2
+  # Device to emulate (desktop, tablet, mobile)
+  device: "desktop"
+  # Custom viewport size (only used if device is not specified)
+  viewport:
+    width: 1920
+    height: 1080
+
+# OCR settings
+ocr:
+  # Language hints for OCR (ISO 639-1 codes)
+  languages: ["en"]
+  # OCR features to enable
+  features:
+    - TEXT_DETECTION
+    - DOCUMENT_TEXT_DETECTION
+
+# UI Analysis settings
+ui_analysis:
+  # Minimum confidence threshold for UI element detection (0.0 - 1.0)
+  min_confidence: 0.7
+  # Maximum number of colors to extract for palette
+  max_colors: 5
