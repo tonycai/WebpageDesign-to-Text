@@ -332,9 +332,6 @@ This will create:
 
 Note: This requires `wkhtmltopdf` to be installed on your system.
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
 
 ### Development Workflow
 
@@ -344,6 +341,25 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Write tests for your changes
 5. Run the test suite: `./docker-test.sh`
 6. Submit a pull request
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+### Feedback and Support
+
+Have suggestions or need help? Feel free to reach out:
+
+- **Telegram**: [@tonyironreal](https://t.me/tonyironreal) - Send your feature requests or report issues
+- **GitHub Issues**: For bug reports and feature requests
+
+## Donations
+
+If you find this project helpful and would like to support its development, you can donate cryptocurrency to the following addresses:
+
+- **Solana (SOL)**: `ESUpLq9tCo1bmauWoN1rgNiYwwr5K587h15SrJz9L7ct` (Phantom Wallet)
+
+Your support is greatly appreciated and helps maintain and improve this project!
 
 ## License
 
